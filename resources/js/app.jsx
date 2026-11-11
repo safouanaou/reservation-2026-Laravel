@@ -1,13 +1,14 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { createInertiaApp } from '@inertiajs/react';
+import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 
-function App() {
-    return (
-        <main className="container py-5">
-            <h1 className="display-5 fw-bold">Projet Réservations</h1>
-            <p className="lead">Laravel + React fonctionne !</p>
-        </main>
-    );
-}
-
-createRoot(document.getElementById('app')).render(<App />);
+createInertiaApp({
+    resolve: (name) => resolvePageComponent(
+        `./Pages/${name}.jsx`,
+        import.meta.glob('./Pages/**/*.jsx'),
+    ),
+    setup({ el, App, props }) {
+        createRoot(el).render(<App {...props} />);
+    },
+});

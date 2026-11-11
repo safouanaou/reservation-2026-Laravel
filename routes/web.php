@@ -1,11 +1,10 @@
 <?php
 
+use App\Http\Controllers\ArtistController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', '/artist');
+Route::redirect('/react', '/artist');
 
-Route::get('/react', function () {
-    return view('react');
-});
+Route::get('/artist', [ArtistController::class, 'index'])
+    ->name('artist.index');

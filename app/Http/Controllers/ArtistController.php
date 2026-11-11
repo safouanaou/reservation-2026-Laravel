@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Artist;
+use Illuminate\Http\Request;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class ArtistController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): Response
     {
-        $artists = Artist::all();
-
-        return view('artist.index', [
-            'artists' => $artists,
-            'resource' => 'artists'
+        return Inertia::render('Artists/Index', [
+            'artists' => Artist::all(),
         ]);
     }
 
