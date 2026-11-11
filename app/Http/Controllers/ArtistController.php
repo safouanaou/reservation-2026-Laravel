@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use app\Models\Artist;
+use App\Models\Artist;
 
 class ArtistController extends Controller
 {
