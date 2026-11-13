@@ -40,8 +40,8 @@ class ArtistController extends Controller
      */
     public function show(string $id)
     {
-        return Inertia::render(`Artists/$id`, [
-            'artist' => Artist::find($id),
+        return Inertia::render('Artists/Show', [
+            'artist' => Artist::findOrFail($id)
         ]);
     }
 
