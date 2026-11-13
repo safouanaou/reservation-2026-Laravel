@@ -8,3 +8,5 @@ Route::redirect('/react', '/artist');
 
 Route::get('/artist', [ArtistController::class, 'index'])
     ->name('artist.index');
+
+    Route::get('/artist/id', )

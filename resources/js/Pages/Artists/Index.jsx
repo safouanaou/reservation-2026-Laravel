@@ -8,7 +8,8 @@ export default function Index({artists}){
 
             <ul>
                 {artists.map(artist => (
-                    <li key={artist.id}>{artist.firstname}</li>
+                    <a href="../Pages/Artist/Index.jsx" key={artist.id}><li key={artist.id}>{artist.firstname}</li></a>
+                    
                 ))}
             </ul>
         
