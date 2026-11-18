@@ -41,6 +41,7 @@ export default function Index({artists}){
                     type="text"
                     id="firstname"
                     name="firstname"
+                    value={data.firstname}
                     onChange={(e) => setData('firstname', e.target.value)} 
                     />
                     {errors.firstname && <p>{errors.firstname}</p>}
@@ -52,6 +53,7 @@ export default function Index({artists}){
                     type="text"
                     id="lastname"
                     name="lastname"
+                    value={data.lastname}
                     onChange={(e) => setData('lastname', e.target.value)} 
                     />
                     {errors.lastname && <p>{errors.lastname}</p>}
