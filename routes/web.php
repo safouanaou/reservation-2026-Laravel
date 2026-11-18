@@ -9,5 +9,8 @@ Route::redirect('/react', '/artist');
 Route::get('/artist', [ArtistController::class, 'index'])
     ->name('artist.index');
 
-    Route::get('/artist/{id}', [ArtistController::class, 'show'])
+Route::get('/artist/{id}', [ArtistController::class, 'show'])
     ->name('artist.show');
+
+Route::post('/artist', [ArtistController::class, 'store'])
+    ->name('artist.store');
