@@ -14,3 +14,6 @@ Route::get('/artist/{id}', [ArtistController::class, 'show'])
 
 Route::post('/artist', [ArtistController::class, 'store'])
     ->name('artist.store');
+
+Route::put('/artist/{id}', [ArtistController::class, 'update'])
+    ->name('artist.update');

@@ -49,6 +49,8 @@ class ArtistController extends Controller
         return Inertia::render('Artists/Show', [
             'artist' => Artist::findOrFail($id)
         ]);
+
+        
     }
 
     /**
@@ -56,7 +58,7 @@ class ArtistController extends Controller
      */
     public function edit(string $id)
     {
-        //
+       
     }
 
     /**
@@ -64,7 +66,13 @@ class ArtistController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $artist = Artist::findOrFail($id);
+        $validated = $request->validate([
+            'firstname' => ['required', 'string', 'max:60'],
+            'lastname' => ['required', 'string', 'max:60'],
+        ]);
+        $artist->update($validated);
+        return redirect()->route('artist.show', $artist->id);
     }
 
     /**
