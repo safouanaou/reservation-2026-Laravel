@@ -2,21 +2,26 @@ import { Link, useForm } from "@inertiajs/react";
 import { useState } from "react";
 
 
+// Affiche un artiste et permet de modifier ses informations directement sur cette page.
 export default function Show({artist}){
 
 
+    // Préremplit le formulaire avec les informations reçues de Laravel et gère l'envoi ainsi que les erreurs.
     const {data, setData, put, processing, errors, reset, setDefaults, clearErrors } = useForm({
         firstname: artist.firstname,
         lastname: artist.lastname,
     });
 
 
+    // Le formulaire reste masqué tant que l'utilisateur n'a pas cliqué sur Edit.
     const [isEditing, setIsEditing] = useState(false);
 
+    // Empêche le rechargement classique du formulaire et envoie les modifications à Laravel par une requête PUT.
     const submit = (e) => {
         e.preventDefault();
 
         put(`/artist/${artist.id}`, {
+            // Après la sauvegarde, actualise les valeurs utilisées par reset() et ferme le formulaire.
             onSuccess: () => {
                 setDefaults(data);
                 setIsEditing(false);
@@ -25,6 +30,7 @@ export default function Show({artist}){
 
     }
 
+    // Annule les modifications non enregistrées, efface les erreurs et quitte le mode édition.
     const cancel = () => {
         reset();
         clearErrors();

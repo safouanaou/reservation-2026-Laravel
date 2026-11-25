@@ -10,7 +10,7 @@ use Inertia\Response;
 class ArtistController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Charge tous les artistes et les transmet à la page React Artists/Index via Inertia.
      */
     public function index(): Response
     {
@@ -20,7 +20,7 @@ class ArtistController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Non utilisée actuellement : le formulaire de création se trouve sur la page de liste.
      */
     public function create()
     {
@@ -28,7 +28,7 @@ class ArtistController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Valide les noms, crée l'artiste en base de données, puis redirige vers la liste.
      */
     public function store(Request $request)
     {
@@ -42,7 +42,7 @@ class ArtistController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Transmet l'artiste demandé à la page React Artists/Show, ou renvoie une erreur 404 s'il n'existe pas.
      */
     public function show(string $id)
     {
@@ -54,7 +54,7 @@ class ArtistController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Non utilisée actuellement : le formulaire de modification s'affiche directement sur la page de l'artiste.
      */
     public function edit(string $id)
     {
@@ -62,7 +62,7 @@ class ArtistController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Recherche l'artiste, valide et enregistre les nouveaux noms, puis redirige vers sa fiche actualisée.
      */
     public function update(Request $request, string $id)
     {
@@ -76,7 +76,7 @@ class ArtistController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Réservée à la suppression d'un artiste ; cette fonctionnalité n'est pas encore implémentée.
      */
     public function destroy(string $id)
     {

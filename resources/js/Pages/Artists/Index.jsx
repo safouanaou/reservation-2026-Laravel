@@ -1,14 +1,17 @@
 import { Link, useForm } from "@inertiajs/react";
 
 
+// Affiche la liste des artistes et le formulaire permettant d'en ajouter un.
 export default function Index({artists}){
 
 
+    // Gère les champs du formulaire, l'état de l'envoi et les erreurs de validation renvoyées par Laravel.
     const {data, setData, post, processing, errors, reset } = useForm({
         firstname: "",
         lastname: "",
     });
 
+    // Envoie le nouvel artiste par une requête POST et vide les champs uniquement si la création réussit.
     const submit = (e)=>{
         e.preventDefault();
 
