@@ -7,7 +7,7 @@ export default function Show({artist}){
 
 
     // Préremplit le formulaire avec les informations reçues de Laravel et gère l'envoi ainsi que les erreurs.
-    const {data, setData, put, processing, errors, reset, setDefaults, clearErrors } = useForm({
+    const {data, setData, put, delete:remove, processing, errors, reset, setDefaults, clearErrors } = useForm({
         firstname: artist.firstname,
         lastname: artist.lastname,
     });
@@ -28,6 +28,11 @@ export default function Show({artist}){
             },
         });
 
+    }
+
+    const deleteArtist = () => {    
+        remove(`/artist/${artist.id}`);
+        
     }
 
     // Annule les modifications non enregistrées, efface les erreurs et quitte le mode édition.
@@ -70,6 +75,7 @@ export default function Show({artist}){
             </form> : 
             <button type="button" onClick={() => setIsEditing(true)}>Edit</button>
             }
+            <button type="button" onClick={deleteArtist}>Delete</button>
         </div>
     )
 }

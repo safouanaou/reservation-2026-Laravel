@@ -80,6 +80,9 @@ class ArtistController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $artist = Artist::findOrFail($id);
+        $artist->delete();
+        
+        return redirect()->route('artist.index');
     }
 }

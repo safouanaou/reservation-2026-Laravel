@@ -17,3 +17,6 @@ Route::post('/artist', [ArtistController::class, 'store'])
 
 Route::put('/artist/{id}', [ArtistController::class, 'update'])
     ->name('artist.update');
+
+Route::delete('/artist/{id}', [ArtistController::class, 'destroy'])
+    ->name('artist.destroy');
