@@ -30,8 +30,14 @@ export default function Show({artist}){
 
     }
 
-    const deleteArtist = () => {    
-        remove(`/artist/${artist.id}`);
+    const deleteArtist = () => {   
+        const confirmed =  window.confirm('do you really want to delete this artist?');
+
+        if (confirmed) {
+            remove(`/artist/${artist.id}`)
+        }
+        else return;
+
         
     }
 
@@ -75,6 +81,8 @@ export default function Show({artist}){
             </form> : 
             <button type="button" onClick={() => setIsEditing(true)}>Edit</button>
             }
+
+
             <button type="button" onClick={deleteArtist}>Delete</button>
         </div>
     )
