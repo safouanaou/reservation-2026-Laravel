@@ -1,5 +1,6 @@
 import { Link, useForm } from "@inertiajs/react";
 import DashboardLayout from "../../Layouts/DashboardLayout";
+import "../../../css/pages/artists/index.css";
 
 
 // Affiche la liste des artistes et le formulaire permettant d'en ajouter un.
@@ -25,16 +26,41 @@ export default function Index({artists}){
     return (
         <DashboardLayout>
 
-            <h1>List of Artists</h1>
+            <h1 className="artists-title">Artists</h1>
+            <p className="artists-description">Manage the artists in your directory.</p>
 
-            <ul>
-                {artists.map(artist => (
-                    <li key={artist.id}>
-                        <Link href={`/artist/${artist.id}`}>{artist.firstname} {artist.lastname}</Link>
-                    </li>
-                    
-                ))}
-            </ul>
+            <div className="table-responsive mb-4">
+                <table className="table table-striped table-hover artists-table">
+                    <caption className="visually-hidden">Artist directory</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col" className="artist-id">ID</th>
+                            <th scope="col">First name</th>
+                            <th scope="col">Last name</th>
+                            <th scope="col" className="artist-actions">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {artists.map(artist => (
+                            <tr key={artist.id}>
+                                <td className="artist-id">{artist.id}</td>
+                                <td>{artist.firstname}</td>
+                                <td>{artist.lastname}</td>
+                                <td className="artist-actions">
+                                    <Link className="btn btn-sm artist-view" href={`/artist/${artist.id}`} aria-label={`View ${artist.firstname} ${artist.lastname}`}>
+                                        View
+                                    </Link>
+                                </td>
+                            </tr>
+                        ))}
+                        {artists.length === 0 && (
+                            <tr>
+                                <td colSpan="4" className="artists-empty">No artists yet. Add your first artist below.</td>
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
+            </div>
 
             <h2>Add an Artist</h2>
 
@@ -65,7 +91,6 @@ export default function Index({artists}){
 
                 <button type="submit" disabled={processing}>{processing ? "Saving..." : "Add Artist"}</button>
             </form>
-
 
         
         </DashboardLayout>

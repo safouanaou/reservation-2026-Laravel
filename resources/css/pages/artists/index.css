@@ -1,0 +1,56 @@
+.artists-title {
+    margin: 0 0 6px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.artists-description {
+    margin-bottom: 24px;
+    color: #767676;
+    font-size: 13px;
+}
+
+.artists-table {
+    --bs-table-bg: #fff;
+    --bs-table-color: var(--text);
+    --bs-table-striped-bg: #f5f5f5;
+    --bs-table-hover-bg: #fff0ed;
+    min-width: 540px;
+    margin-bottom: 0;
+    border-color: var(--border);
+    font-size: 14px;
+}
+
+.artists-table thead { --bs-table-bg: #fdedec; }
+.artists-table th { font-weight: 600; }
+
+.artists-table th,
+.artists-table td {
+    height: 48px;
+    padding: 10px 16px;
+    vertical-align: middle;
+}
+
+.artists-table .artist-id { width: 70px; text-align: center; }
+.artists-table .artist-actions { width: 120px; text-align: center; }
+
+.artists-table .artist-view {
+    padding: 3px 10px;
+    border: 1px solid #f3a196;
+    border-radius: 2px;
+    background: #fff;
+    color: #b33e30;
+    font-size: 12px;
+}
+
+.artists-table .artist-view:hover {
+    border-color: #c44738;
+    background: #fdedec;
+    color: #a83a2d;
+}
+
+.artists-table .artists-empty {
+    padding: 32px 16px;
+    color: #767676;
+    text-align: center;
+}
