@@ -1,4 +1,5 @@
 import { Link, useForm } from "@inertiajs/react";
+import DashboardLayout from "../../Layouts/DashboardLayout";
 
 
 // Affiche la liste des artistes et le formulaire permettant d'en ajouter un.
@@ -22,7 +23,7 @@ export default function Index({artists}){
 
 
     return (
-        <div>
+        <DashboardLayout>
 
             <h1>List of Artists</h1>
 
@@ -67,7 +68,7 @@ export default function Index({artists}){
 
 
         
-        </div>
+        </DashboardLayout>
     )
 }
 

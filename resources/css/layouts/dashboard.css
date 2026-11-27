@@ -1,0 +1,81 @@
+.dashboard {
+    --page-bg: #fff5f3;
+    --panel-bg: #fff;
+    --sidebar-bg: #d85d50;
+    --nav-active: #fa7969;
+    --border: #e8e8e8;
+    --text: #333;
+    display: flex;
+    min-height: 100vh;
+    background: var(--page-bg);
+    color: var(--text);
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+}
+
+.dashboard-sidebar {
+    flex: 0 0 110px;
+    background: var(--sidebar-bg);
+}
+
+.dashboard-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 64px;
+    border-bottom: 1px solid #ffffff26;
+    color: white;
+    font-size: 27px;
+}
+
+.dashboard-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 84px;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.dashboard-nav-item i { font-size: 23px; }
+.dashboard-brand:hover { color: white; }
+.dashboard-nav-item.active,
+.dashboard-nav-item:hover { background: var(--nav-active); color: white; }
+
+.dashboard-main { flex: 1; min-width: 0; }
+
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 64px;
+    padding: 12px 24px;
+    background: var(--panel-bg);
+    border-bottom: 1px solid var(--border);
+}
+
+.dashboard-app-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #f2f2f2;
+    color: #666;
+    font-size: 18px;
+}
+
+.dashboard-content { padding: 24px; }
+.dashboard-panel {
+    padding: 20px;
+    background: var(--panel-bg);
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px #00000004;
+}
+
+.dashboard a:focus-visible { outline: 2px solid #a33e32; outline-offset: 3px; }
